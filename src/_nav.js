@@ -94,23 +94,23 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Kho sim',
-    to: '/buttons',
+    to: '/sim',
     icon: <CIcon icon={cilSim} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'Sim nghe gọi',
-        to: '/buttons/buttons',
+        to: '/sim/nghe-goi',
       },
       {
         component: CNavItem,
         name: 'Sim data',
-        to: '/buttons/button-groups',
+        to: '/sim/data',
       },
       {
         component: CNavItem,
         name: 'Thống kê',
-        to: '/buttons/dropdowns',
+        to: '/sim/thong-ke',
       },
     ],
   },

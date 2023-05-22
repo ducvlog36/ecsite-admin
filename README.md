@@ -44,4 +44,4 @@ $ yarn build
 ```
 
 #coppy to backend
-cp -R C:\Users\ducld\Documents\01_mysempai\mysempai\outsource\client\build C:\Users\ducld\Documents\01_mysempai\mysempai\outsource\haken\frontend
+cp -R C:\Users\ducld\Documents\01_mysempai\mysempai\outsource\simvang\ecsite-frontend\ecsite-admin\build C:\Users\ducld\Documents\01_mysempai\mysempai\outsource\python\django\simvang1\frontend

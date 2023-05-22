@@ -20,10 +20,10 @@ const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
 const Tables = React.lazy(() => import('./views/base/tables/Tables'))
 const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
 
-// Buttons
-const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
-const ButtonGroups = React.lazy(() => import('./views/buttons/button-groups/ButtonGroups'))
-const Dropdowns = React.lazy(() => import('./views/buttons/dropdowns/Dropdowns'))
+// SimNgheGoi
+const SimNgheGoi = React.lazy(() => import('./views/sims/nghe-goi/SimNgheGoi'))
+const SimData = React.lazy(() => import('./views/sims/data/SimData'))
+const ThongKe = React.lazy(() => import('./views/sims/thong-ke/ThongKe'))
 
 //Forms
 const ChecksRadios = React.lazy(() => import('./views/forms/checks-radios/ChecksRadios'))
@@ -71,10 +71,10 @@ const routes = [
   { path: '/base/spinners', name: 'Spinners', element: Spinners },
   { path: '/base/tables', name: 'Tables', element: Tables },
   { path: '/base/tooltips', name: 'Tooltips', element: Tooltips },
-  { path: '/buttons', name: 'Buttons', element: Buttons, exact: true },
-  { path: '/buttons/buttons', name: 'Buttons', element: Buttons },
-  { path: '/buttons/dropdowns', name: 'Dropdowns', element: Dropdowns },
-  { path: '/buttons/button-groups', name: 'Button Groups', element: ButtonGroups },
+  { path: '/buttons', name: 'SimNgheGoi', element: SimNgheGoi, exact: true },
+  { path: '/sim/nghe-goi', name: 'SimNgheGoi', element: SimNgheGoi },
+  { path: '/sim/thong-ke', name: 'SimData', element: ThongKe },
+  { path: '/sim/data', name: 'ThongKe', element: SimData },
   { path: '/charts', name: 'Charts', element: Charts },
   { path: '/forms', name: 'Forms', element: FormControl, exact: true },
   { path: '/forms/form-control', name: 'Form Control', element: FormControl },

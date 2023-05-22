@@ -6,7 +6,6 @@ export const logoNegative = [
   <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="40" font-family="Arial" fill="white" font-weight="bold">
     SIMVANG
   </text>
-</svg>
-
+  </svg>
 `,
 ]

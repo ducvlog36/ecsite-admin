@@ -4,7 +4,7 @@ import CIcon from '@coreui/icons-react'
 import { cilBell } from '@coreui/icons'
 import { DocsExample } from 'src/components'
 
-const Buttons = () => {
+const SimNgheGoi = () => {
   return (
     <CRow>
       <CCol xs={12}>
@@ -398,4 +398,4 @@ const Buttons = () => {
   )
 }
 
-export default Buttons
+export default SimNgheGoi

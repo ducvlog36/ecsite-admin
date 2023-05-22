@@ -1,17 +1,38 @@
 // If you want to override variables do it here
 @import "variables";
-
 $enable-ltr: true;
 $enable-rtl: true;
-
 // Import CoreUI for React components library
 @import "@coreui/coreui/scss/coreui";
-
 // Import Chart.js custom tooltips styles
 @import "@coreui/chartjs/scss/coreui-chartjs";
-
 @import "layout";
 @import "example";
-
 // If you want to add custom CSS you can put it here.
 @import "custom";
+//Sim
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-container .sticky {
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+    /* Optional: to ensure the cell is not semi-transparent when scrolling */
+}
+
+.table-header-cell {
+    white-space: nowrap;
+}
+
+.button-container {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+.no-bullets {
+    list-style-type: none;
+}
