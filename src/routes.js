@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
@@ -19,12 +20,6 @@ const Progress = React.lazy(() => import('./views/base/progress/Progress'))
 const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
 const Tables = React.lazy(() => import('./views/base/tables/Tables'))
 const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
-
-// SimNgheGoi
-const SimNgheGoi = React.lazy(() => import('./views/sims/nghe-goi/SimNgheGoi'))
-const SimData = React.lazy(() => import('./views/sims/data/SimData'))
-const ThongKe = React.lazy(() => import('./views/sims/thong-ke/ThongKe'))
-
 //Forms
 const ChecksRadios = React.lazy(() => import('./views/forms/checks-radios/ChecksRadios'))
 const FloatingLabels = React.lazy(() => import('./views/forms/floating-labels/FloatingLabels'))
@@ -49,6 +44,14 @@ const Modals = React.lazy(() => import('./views/notifications/modals/Modals'))
 const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
+// SimNgheGoi
+const SimNgheGoi = React.lazy(() => import('./views/sims/nghe-goi/SimNgheGoi'))
+const SimData = React.lazy(() => import('./views/sims/data/SimData'))
+const ThongKe = React.lazy(() => import('./views/sims/thong-ke/ThongKe'))
+//shop
+const LenDon = React.lazy(()=> import('./views/shop/len-don/LenDon'))
+//ctv
+const Agency = React.lazy(()=> import('./views/partner/agency/Agency'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
@@ -72,9 +75,6 @@ const routes = [
   { path: '/base/tables', name: 'Tables', element: Tables },
   { path: '/base/tooltips', name: 'Tooltips', element: Tooltips },
   { path: '/buttons', name: 'SimNgheGoi', element: SimNgheGoi, exact: true },
-  { path: '/sim/nghe-goi', name: 'SimNgheGoi', element: SimNgheGoi },
-  { path: '/sim/thong-ke', name: 'SimData', element: ThongKe },
-  { path: '/sim/data', name: 'ThongKe', element: SimData },
   { path: '/charts', name: 'Charts', element: Charts },
   { path: '/forms', name: 'Forms', element: FormControl, exact: true },
   { path: '/forms/form-control', name: 'Form Control', element: FormControl },
@@ -95,6 +95,11 @@ const routes = [
   { path: '/notifications/modals', name: 'Modals', element: Modals },
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },
+  { path: '/sim/nghe-goi', name: 'SimNgheGoi', element: SimNgheGoi },
+  { path: '/sim/thong-ke', name: 'SimData', element: ThongKe },
+  { path: '/sim/data', name: 'ThongKe', element: SimData },
+  { path: '/shop/lendon', name: 'Len Don', element: LenDon },
+  { path: '/partner/agency', name: 'Đại lý', element: Agency },
 ]
 
 export default routes

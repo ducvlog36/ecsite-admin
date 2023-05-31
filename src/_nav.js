@@ -71,8 +71,8 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'Chưa gửi',
-        to: '/base/breadcrumbs',
+        name: 'Lên đơn',
+        to: '/shop/lendon',
       },
       {
         component: CNavItem,
@@ -121,12 +121,12 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'CTV theo tháng',
-        to: '/forms/form-control',
+        name: 'Đại lý',
+        to: '/partner/agency',
       },
       {
         component: CNavItem,
-        name: 'CTV 1 lần',
+        name: 'Cộng tác viên',
         to: '/forms/select',
       },
       {

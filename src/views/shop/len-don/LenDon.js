@@ -1,12 +1,14 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react'
-import { CButton, CCard, CCardBody, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow } from '@coreui/react'
+import { CButton, CCard, CCardBody, CCol, CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle, CForm, CFormInput, CFormLabel, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow, CTooltip } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { DocsExample } from 'src/components'
 import { getAllSim } from 'src/services/SimServices'
 
-const SimData = () => {
+const LenDon = () => {
   const [data, setData] = useState()
+  const [selected, setSelected] = useState()
+
   useEffect(()=>{
     const simFetch=async()=>{
       const responce = await getAllSim()
@@ -14,12 +16,27 @@ const SimData = () => {
       setData(responce)
     }
     simFetch()
-  },[])
+    console.log(selected)
+  },[selected])
+
+  const handleSelect = (value) => {
+    setSelected(value);
+  };
+
   return (
     <div>
-      <CCard>
-        <CCardBody>This is some text within a card body.</CCardBody>
-      </CCard>
+    <CCard>
+      <CCardBody>
+        <CDropdown>
+          <CDropdownToggle color="secondary">Loại sản phẩm</CDropdownToggle>
+          <CDropdownMenu>
+            <CDropdownItem onClick={() => handleSelect('Nghe gọi theo tháng')}>Nghe gọi theo tháng</CDropdownItem>
+            <CDropdownItem onClick={() => handleSelect('Data cước tháng')}>Data cước tháng</CDropdownItem>
+            <CDropdownItem onClick={() => handleSelect('Data mua đứt')}>Data mua đứt</CDropdownItem>
+          </CDropdownMenu>
+        </CDropdown>
+      </CCardBody>
+    </CCard>
     <div className="table-container">
     <CTable>
       <CTableHead>
@@ -60,8 +77,34 @@ const SimData = () => {
               <CTableBody>
                 <CTableRow>
                   <div className='sticky'>
-                <CTableHeaderCell scope="row">{index+1}</CTableHeaderCell>
-              <CTableDataCell className="sticky">{sim.phone_number}</CTableDataCell>
+                  <CTableHeaderCell scope="row">{index+1}</CTableHeaderCell>
+
+                  <CTooltip
+                      content={(
+                        <>
+                        <ul className="no-bullets">
+                          <li>{sim.iccid}</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          <li>Thông số sim</li>
+                          </ul>
+                        </>
+                      )}
+                  placement="top">
+                    <CTableDataCell className="sticky">{sim.phone_number}</CTableDataCell>
+
+                </CTooltip>
+              
             </div>
               <CTableDataCell>{sim.iccid}</CTableDataCell>
               <CTableDataCell>@mdo</CTableDataCell>
@@ -103,4 +146,4 @@ const SimData = () => {
   )
 }
 
-export default SimData
+export default LenDon

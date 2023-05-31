@@ -14,13 +14,15 @@ $enable-rtl: true;
 .table-container {
     width: 100%;
     overflow-x: auto;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .table-container .sticky {
     position: sticky;
     left: 0;
     background-color: #fff;
-    /* Optional: to ensure the cell is not semi-transparent when scrolling */
+
 }
 
 .table-header-cell {
@@ -30,9 +32,22 @@ $enable-rtl: true;
 .button-container {
     position: fixed;
     right: 10px;
-    bottom: 10px;
+    top: 10px;
 }
 
 .no-bullets {
     list-style-type: none;
+}
+.CCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.CCardHeaderRight {
+    order: 1;
+}
+
+.CCardHeaderLeft {
+    order: 2;
 }

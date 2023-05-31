@@ -16,6 +16,8 @@ $ yarn install
 ``` bash
 # dev server with hot reload at http://localhost:3000
 $ npm start 
+$ npm run dev 
+$ npm run product 
 ```
 
 or 

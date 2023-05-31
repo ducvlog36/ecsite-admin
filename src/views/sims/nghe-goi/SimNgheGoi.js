@@ -1,53 +1,67 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react'
-import { CButton, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow, CTooltip } from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { getAllUser } from '../../../services/AuthService'
-import { DocsExample } from 'src/components'
+import { CButton, CCard, CCardBody, CCol, CForm, CFormInput, CFormLabel, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow, CTooltip } from '@coreui/react'
+import { getAllSim } from '../../../services/SimServices'
 
 const SimNgeGoi = () => {
   const [data, setData] = useState()
   useEffect(()=>{
     const simFetch=async()=>{
-      const responce = await getAllUser()
+      const responce = await getAllSim()
       console.log(responce)
       setData(responce)
     }
     simFetch()
   },[])
+  
   return (
     <div>
+      <CCard>
+        <CCardBody>
+        <CForm className="row g-3">
+          <CCol xs="auto">
+            <CFormInput type="text" id="staticEmail2" defaultValue="Đầu số"/>
+          </CCol>
+          <CCol xs="auto">
+            <CFormLabel htmlFor="inputPassword2" className="visually-hidden">
+              ICCID
+            </CFormLabel>
+            <CFormInput type="password" id="inputPassword2" placeholder="Password" />
+          </CCol>
+          <CCol xs="auto">
+            <CButton type="submit" className="mb-3">
+              Confirm identity
+            </CButton>
+          </CCol>
+        </CForm>
+
+        </CCardBody>
+      </CCard>
     <div className="table-container">
     <CTable>
       <CTableHead>
         <CTableRow>
           <div className='sticky'>
             <CTableHeaderCell scope="col">#</CTableHeaderCell>
-            <CTableHeaderCell className="table-header-cell" scope="col">Đầu số</CTableHeaderCell>
+            <CTableHeaderCell className="table-header-cell" scope="col">Số ĐT</CTableHeaderCell>
           </div>
           <CTableHeaderCell className="table-header-cell" scope="col">ICCID</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading3</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading4</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading5</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading6</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading7</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading8</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading9</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading10</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading11</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading12</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading13</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading14</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading15</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading16</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading17</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading18</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading19</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading20</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading21</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading22</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading23</CTableHeaderCell>
-          <CTableHeaderCell className="table-header-cell" scope="col">Heading24</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">SMP</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Ngày nhập</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Nơi nhập</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Nơi xuất</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Gói cước</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Tình trạng</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Lọc số</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">NOTE</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Số Cũ</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Gói cước cũ</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Họ tên</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Nguồn</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Check cước </CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Lọc số</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Nơi xuất cũ</CTableHeaderCell>
+          <CTableHeaderCell className="table-header-cell" scope="col">Số Cũ</CTableHeaderCell>
         </CTableRow>
       </CTableHead>
 
@@ -64,8 +78,8 @@ const SimNgeGoi = () => {
                         <>
                         <ul className="no-bullets">
                           <li>{sim.iccid}</li>
-                          <li>Thông số sim</li>
-                          <li>Thông số sim</li>
+                          <li>ICCID</li>
+                          <li>Ngày nhập</li>
                           <li>Thông số sim</li>
                           <li>Thông số sim</li>
                           <li>Thông số sim</li>
@@ -82,32 +96,25 @@ const SimNgeGoi = () => {
                       )}
                   placement="top">
                     <CTableDataCell className="sticky">{sim.phone_number}</CTableDataCell>
-
                 </CTooltip>
               
             </div>
               <CTableDataCell>{sim.iccid}</CTableDataCell>
-              <CTableDataCell>@mdo</CTableDataCell>
-              <CTableDataCell>Mark</CTableDataCell>
-              <CTableDataCell>Otto</CTableDataCell>
-              <CTableDataCell>@mdo</CTableDataCell>
-              <CTableDataCell>Mark</CTableDataCell>
-              <CTableDataCell>Otto</CTableDataCell>
-              <CTableDataCell>@mdo</CTableDataCell>
-              <CTableDataCell>Mark</CTableDataCell>
-              <CTableDataCell>Otto</CTableDataCell>
-              <CTableDataCell>@mdo</CTableDataCell>
-              <CTableDataCell>Mark</CTableDataCell>
-              <CTableDataCell>Otto</CTableDataCell>
-              <CTableDataCell>@mdo</CTableDataCell>
-              <CTableDataCell>Mark</CTableDataCell>
-              <CTableDataCell>Otto</CTableDataCell>
-              <CTableDataCell>@mdo</CTableDataCell>
-              <CTableDataCell>Mark</CTableDataCell>
-              <CTableDataCell>Otto</CTableDataCell>
-              <CTableDataCell>@mdo</CTableDataCell>
-              <CTableDataCell>Mark</CTableDataCell>
-              <CTableDataCell>Otto</CTableDataCell>
+              <CTableDataCell>@mdo1</CTableDataCell>
+              <CTableDataCell>Mark2</CTableDataCell>
+              <CTableDataCell>Otto3</CTableDataCell>
+              <CTableDataCell>@mdo4</CTableDataCell>
+              <CTableDataCell>Mark5</CTableDataCell>
+              <CTableDataCell>Otto6</CTableDataCell>
+              <CTableDataCell>@mdo7</CTableDataCell>
+              <CTableDataCell>Mark8</CTableDataCell>
+              <CTableDataCell>Otto9</CTableDataCell>
+              <CTableDataCell>@mdo10</CTableDataCell>
+              <CTableDataCell>Mark11</CTableDataCell>
+              <CTableDataCell>Otto12</CTableDataCell>
+              <CTableDataCell>@mdo13</CTableDataCell>
+              <CTableDataCell>Mark14</CTableDataCell>
+              <CTableDataCell>Otto15</CTableDataCell>
               <CTableDataCell>@mdo</CTableDataCell>
             </CTableRow>
             </CTableBody>
