@@ -61,13 +61,13 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'SV Shop',
-    to: '/base',
+    to: '/shop',
     icon: <CIcon icon={cilBasket} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
         name: 'Đang bán',
-        to: '/base/accordion',
+        to: '/shop/OnSale',
       },
       {
         component: CNavItem,

@@ -50,7 +50,8 @@ const SimData = React.lazy(() => import('./views/sims/data/SimData'))
 const ThongKe = React.lazy(() => import('./views/sims/thong-ke/ThongKe'))
 //shop
 const LenDon = React.lazy(()=> import('./views/shop/len-don/LenDon'))
-//ctv
+const OnSale = React.lazy(()=> import('./views/shop/onSale/OnSale'))
+const ProductDetail = React.lazy(()=> import('./views/shop/product/ProductDetail'))
 const Agency = React.lazy(()=> import('./views/partner/agency/Agency'))
 
 const routes = [
@@ -95,10 +96,13 @@ const routes = [
   { path: '/notifications/modals', name: 'Modals', element: Modals },
   { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
   { path: '/widgets', name: 'Widgets', element: Widgets },
+  //Custom layout
   { path: '/sim/nghe-goi', name: 'SimNgheGoi', element: SimNgheGoi },
   { path: '/sim/thong-ke', name: 'SimData', element: ThongKe },
   { path: '/sim/data', name: 'ThongKe', element: SimData },
   { path: '/shop/lendon', name: 'Len Don', element: LenDon },
+  { path: '/shop/onSale', name: 'Đang bán', element: OnSale },
+  { path: '/shop/product-detail', name: 'Chi tiết sản phẩm', element: ProductDetail },
   { path: '/partner/agency', name: 'Đại lý', element: Agency },
 ]
 

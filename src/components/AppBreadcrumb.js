@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 
@@ -10,8 +12,10 @@ const AppBreadcrumb = () => {
 
   const getRouteName = (pathname, routes) => {
     const currentRoute = routes.find((route) => route.path === pathname)
+    console.log(currentRoute)
     return currentRoute ? currentRoute.name : false
   }
+
 
   const getBreadcrumbs = (location) => {
     const breadcrumbs = []

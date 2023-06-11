@@ -16,15 +16,13 @@ import {
 import { DocsExample } from 'src/components'
 import CIcon from '@coreui/icons-react'
 import { cilChartPie } from '@coreui/icons'
+import { Link } from 'react-router-dom'
 
-const Accordion = () => {
+const OnSale = () => {
   return (
     <CRow>
       <CCol xs={12}>
         <CCard className="mb-4">
-          <CCardHeader>
-            <strong>Danh sách sản phẩm</strong>
-          </CCardHeader>
           <CCardBody>
               <CAccordion>
                 <CAccordionItem itemKey={1}>
@@ -37,9 +35,10 @@ const Accordion = () => {
                         color="primary"
                         icon={<CIcon icon={cilChartPie} height={24} />}
                         padding={false}
-                        title="Sim nghe gọi 20gb"
+                        title={<Link to="/shop/product-detail/">Sim nghe gọi</Link>}
                         value="89.19%"/>
                     </CCol>
+                    
                     <CCol xs={6}>
                       <CWidgetStatsF
                         className="mb-3"
@@ -110,4 +109,4 @@ const Accordion = () => {
   )
 }
 
-export default Accordion
+export default OnSale

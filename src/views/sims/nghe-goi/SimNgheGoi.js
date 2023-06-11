@@ -30,11 +30,10 @@ const SimNgeGoi = () => {
           </CCol>
           <CCol xs="auto">
             <CButton type="submit" className="mb-3">
-              Confirm identity
+              Tìm kiếm
             </CButton>
           </CCol>
         </CForm>
-
         </CCardBody>
       </CCard>
     <div className="table-container">
@@ -72,7 +71,6 @@ const SimNgeGoi = () => {
                 <CTableRow>
                   <div className='sticky'>
                   <CTableHeaderCell scope="row">{index+1}</CTableHeaderCell>
-
                   <CTooltip
                       content={(
                         <>

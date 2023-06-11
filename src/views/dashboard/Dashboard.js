@@ -1,5 +1,5 @@
+/* eslint-disable */
 import React from 'react'
-
 import {
   CAvatar,
   CButton,
@@ -91,7 +91,7 @@ const Dashboard = () => {
     {
       avatar: { src: avatar1, status: 'success' },
       user: {
-        name: 'Yiorgos Avraamu',
+        name: 'Cty A',
         new: true,
         registered: 'Jan 1, 2021',
       },
@@ -107,7 +107,7 @@ const Dashboard = () => {
     {
       avatar: { src: avatar2, status: 'danger' },
       user: {
-        name: 'Avram Tarasios',
+        name: 'Cty B',
         new: false,
         registered: 'Jan 1, 2021',
       },
@@ -184,7 +184,7 @@ const Dashboard = () => {
       <CRow>
         <CCol xs>
           <CCard className="mb-4">
-            <CCardHeader>Traffic {' & '} Sales</CCardHeader>
+            <CCardHeader>Cộng tác viên {' & '} Đại lý</CCardHeader>
             <CCardBody>
               <br />
               <CTable align="middle" className="mb-0 border" hover responsive>
@@ -193,10 +193,10 @@ const Dashboard = () => {
                     <CTableHeaderCell className="text-center">
                       <CIcon icon={cilPeople} />
                     </CTableHeaderCell>
-                    <CTableHeaderCell>User</CTableHeaderCell>
-                    <CTableHeaderCell className="text-center">Country</CTableHeaderCell>
-                    <CTableHeaderCell>Usage</CTableHeaderCell>
-                    <CTableHeaderCell className="text-center">Payment Method</CTableHeaderCell>
+                    <CTableHeaderCell>Tên</CTableHeaderCell>
+                    <CTableHeaderCell className="text-center">Loại</CTableHeaderCell>
+                    <CTableHeaderCell>Quản ly</CTableHeaderCell>
+                    <CTableHeaderCell className="text-center">Doanh thu</CTableHeaderCell>
                     <CTableHeaderCell>Activity</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
@@ -214,7 +214,7 @@ const Dashboard = () => {
                         </div>
                       </CTableDataCell>
                       <CTableDataCell className="text-center">
-                        <CIcon size="xl" icon={item.country.flag} title={item.country.name} />
+                        Đại lý
                       </CTableDataCell>
                       <CTableDataCell>
                         <div className="clearfix">
