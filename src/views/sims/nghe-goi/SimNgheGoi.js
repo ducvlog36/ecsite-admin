@@ -1,19 +1,20 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react'
 import { CButton, CCard, CCardBody, CCol, CForm, CFormInput, CFormLabel, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow, CTooltip } from '@coreui/react'
-import { getAllSim } from '../../../services/SimServices'
+import { getAllSimPlan } from '../../../services/SimServices'
 
 const SimNgeGoi = () => {
   const [data, setData] = useState()
+
   useEffect(()=>{
     const simFetch=async()=>{
-      const responce = await getAllSim()
+      const responce = await getAllSimPlan()
       console.log(responce)
       setData(responce)
     }
     simFetch()
   },[])
-  
+
   return (
     <div>
       <CCard>

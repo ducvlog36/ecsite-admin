@@ -3,14 +3,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import { CButton, CCard, CCardBody, CCol, CForm, CFormInput, CFormLabel, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { DocsExample } from 'src/components'
-import { getAllSim } from 'src/services/SimServices'
+import { getAllSimPlan } from 'src/services/SimServices'
 import * as XLSX from 'xlsx';
 
 const SimData = () => {
   const [data, setData] = useState()
   useEffect(()=>{
     const simFetch=async()=>{
-      const responce = await getAllSim()
+      const responce = await getAllSimPlan()
       console.log(responce)
       setData(responce)
     }

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -17,8 +18,8 @@ import navigation from '../_nav'
 
 const AppSidebar = () => {
   const dispatch = useDispatch()
-  const unfoldable = useSelector((state) => state.sidebarUnfoldable)
-  const sidebarShow = useSelector((state) => state.sidebarShow)
+  const unfoldable = useSelector((state) => state.sidebar.sidebarUnfoldable)
+  const sidebarShow = useSelector((state) => state.sidebar.sidebarShow)
 
   return (
     <CSidebar
@@ -26,7 +27,7 @@ const AppSidebar = () => {
       unfoldable={unfoldable}
       visible={sidebarShow}
       onVisibleChange={(visible) => {
-        dispatch({ type: 'set', sidebarShow: visible })
+        dispatch({ type: 'SET_SIDEBAR_SHOW', sidebarShow: visible })
       }}
     >
       <CSidebarBrand className="d-none d-md-flex" to="/">
@@ -40,7 +41,7 @@ const AppSidebar = () => {
       </CSidebarNav>
       <CSidebarToggler
         className="d-none d-lg-flex"
-        onClick={() => dispatch({ type: 'set', sidebarUnfoldable: !unfoldable })}
+        onClick={() => dispatch({ type: 'SET_SIDEBAR_UNFOLDABLE', sidebarUnfoldable: !unfoldable })}
       />
     </CSidebar>
   )

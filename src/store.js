@@ -1,17 +1,12 @@
-import { createStore } from 'redux'
+/* eslint-disable */
+import { createStore, combineReducers } from 'redux'
+import sidebarReducer from './redux/sidebarReducer'
+import userReducer from './redux/userReducer'
 
-const initialState = {
-  sidebarShow: true,
-}
+const rootReducer = combineReducers({
+  sidebar: sidebarReducer,
+  user: userReducer
+})
 
-const changeState = (state = initialState, { type, ...rest }) => {
-  switch (type) {
-    case 'set':
-      return { ...state, ...rest }
-    default:
-      return state
-  }
-}
-
-const store = createStore(changeState)
+const store = createStore(rootReducer)
 export default store

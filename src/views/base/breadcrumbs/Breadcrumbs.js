@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { CButton, CCard, CCardBody, CCol, CDropdown, CDropdownItem, CDropdownMenu, CDropdownToggle, CForm, CFormInput, CFormLabel, CTable, CTableBody, CTableDataCell, CTableHead, CTableHeaderCell, CTableRow, CTooltip } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { DocsExample } from 'src/components'
-import { getAllSim } from 'src/services/SimServices'
+import { getAllSimPlan } from 'src/services/SimServices'
 
 const Breadcrumbs = () => {
   const [data, setData] = useState()
   useEffect(()=>{
     const simFetch=async()=>{
-      const responce = await getAllSim()
+      const responce = await getAllSimPlan()
       console.log(responce)
       setData(responce)
     }
