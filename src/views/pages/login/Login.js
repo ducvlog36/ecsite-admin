@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import {
   CButton,
   CCard,
@@ -16,31 +16,41 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../../redux/authAction'
 import { UserLogin } from 'src/services/AuthServices'
+import { getJwtToken } from 'src/utils/localStorage';
+import { setJwtToken } from 'src/utils/localStorage';
 
 const Login = () => {
+  const [state, setState] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const isLoggedIn = useSelector(state => state.user.isLoggedIn);
 
   useEffect(() => {
-    const userData = localStorage.getItem('user')
+    const userData = getJwtToken();
     if (userData) {
-      dispatch(login(JSON.parse(userData)))
-      navigate('/')
+      dispatch(login(JSON.parse(userData)));
+      
     }
-  }, [dispatch, navigate])
-
+  }, [dispatch]);
+  
   const handleSubmit = async (event) => {
     event.preventDefault()
+    setState(!state)
     const user = { username, password }
-    const response = await UserLogin(user)
-    dispatch(login(response.access))
-    localStorage.setItem('user', JSON.stringify(response.access))
-    navigate('/')
+    try {
+      const response = await UserLogin(user)
+      dispatch(login(response.access))
+      setJwtToken(JSON.stringify(response.access))
+      console.log(response)
+      window.location.reload();
+    } catch (err) {
+      console.error(err)
+    }
   }
   
   return (
@@ -79,7 +89,7 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton type="submit" color="primary" className="px-4">
+                        <CButton loading={state} type="submit" color="primary" className="px-4" onClick={() => setState(!state)}>
                           Login
                         </CButton>
                       </CCol>

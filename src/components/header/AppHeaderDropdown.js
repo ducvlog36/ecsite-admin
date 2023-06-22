@@ -27,7 +27,7 @@ const AppHeaderDropdown = () => {
   const onHandleLogout = () => {
     dispatch(logout())
     localStorage.clear()
-    navigate('/')
+    window.location.reload();
   }
 
   return (

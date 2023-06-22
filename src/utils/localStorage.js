@@ -5,6 +5,6 @@ export const getJwtToken =()=>{
     localStorage.getItem(LOCAL_STORAGE_KEYS.JWT_TOKEN)
 }
 
-export const setJwtToken =()=>[
+export const setJwtToken =(user)=>[
     localStorage.setItem(LOCAL_STORAGE_KEYS.JWT_TOKEN,user)
 ]

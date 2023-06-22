@@ -4,14 +4,19 @@ import { getJwtToken } from 'src/utils/localStorage';
 const config = require(`../config/${process.env.REACT_APP_ENV}`);
 const token = getJwtToken()
 
-const API = axios.create({
-  baseURL: config.API_URL,
-  timeout: 20000,
-  headers: {
+const headers = {
     'Content-Type': 'application/json',
-    'JWT': token
+  };
+  
+  if (token) {
+    headers['JWT'] = token;
   }
-});
+  
+  const API = axios.create({
+    baseURL: config.API_URL,
+    timeout: 20000,
+    headers,
+  });
 // Generic GET Request
 export const fetchData = async (url) => {
   try {

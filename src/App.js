@@ -13,7 +13,6 @@ const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
 const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
 
 class App extends Component {
-  
   render() {
     const isAuthenticated = localStorage.getItem('user') !== null; // Kiểm tra thông tin người dùng trong localStorage
 
@@ -21,7 +20,7 @@ class App extends Component {
       <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
           <Routes>
-              <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <Login />} />
+              <Route path="/login" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/404" element={<Page404 />} />
               <Route path="/500" element={<Page500 />} />
